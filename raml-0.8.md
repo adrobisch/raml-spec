@@ -485,6 +485,12 @@ baseUri: https://api.github.com
 
 Every property whose key begins with a slash (/), and is either at the root of the API definition or is the child property of a resource property, is a resource property. The key of a resource, i.e. its relative URI, MAY consist of multiple URI path fragments separated by slashes; e.g. "/bom/items" may indicate the collection of items in a bill of materials as a single resource. However, if the individual URI path fragments are themselves resources, the API definition SHOULD use nested resources to describe this structure; e.g. if "/bom" is itself a resource then "/items" should be a nested resource of "/bom", while "/bom/items" should not be used.
 
+#### Name
+
+The *name* attribute provides a name to the resource and can be used to make references to this resource e.g. as target resource in relation definitions. The *name* key is OPTIONAL.
+
+If the *name* attribute is not defined for a resource, its property key (i.e. its relative URI, e.g., "/jobs") ajdusted by removing the the leading slash if present SHOULD act as the resource's name; e.g. if "/jobs" is the relaitve URI, the resource SHOULD be "jobs".  
+
 #### Display Name
 
 The *displayName* attribute provides a friendly name to the resource and can be used by documentation generation tools. The *displayName* key is OPTIONAL.
